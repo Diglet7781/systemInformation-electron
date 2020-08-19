@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SysInfo</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" integrity="sha384-3fdgwJw17Bi87e1QQ4fsLn4rUFqWw//KU0g8TvV6quvahISRewev6/EocKNuJmEw" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="header">SysInfo App</h1>
+    <div id="jumbotron"></div>
+    <script>
+        console.log(process);
+        let output = `
+        <h2 class="header">App version Data</h2>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+               Node:
+                <span class="badge badge-primary badge-pill">${process.versions.node}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Chrome:
+                <span class="badge badge-primary badge-pill">${process.versions.chrome}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Electron:
+                <span class="badge badge-primary badge-pill">${process.versions.electron}</span>
+            </li>
+        </ul>
+        <h2 class="header">System specs</h2>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                System Architecture:
+                <span class="badge badge-primary badge-pill">${process.arch}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Computer Name:
+                <span class="badge badge-primary badge-pill">${process.env.COMPUTERNAME}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Number of Processors:
+                <span class="badge badge-primary badge-pill">${process.env.NUMBER_OF_PROCESSORS}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Processor Identifier:
+                <span class="badge badge-primary badge-pill">${process.env.PROCESSOR_IDENTIFIER}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Operating System:
+                <span class="badge badge-primary badge-pill">${process.env.OS}</span>
+            </li>
+        </ul>
+        `;
+        document.getElementById('jumbotron').innerHTML = output;
+    </script>
+</body>
+</html>
